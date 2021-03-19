@@ -1,0 +1,38 @@
+﻿<Window x:Class="FunctionBuilder.wpfGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FunctionBuilder.wpfGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBox
+				 x:Name="InputBox" Text="Введите уравнение"/>
+            <TextBlock>Введите мин. значение:</TextBlock>
+            <TextBox x:Name="xMin" Text="0"/>
+            <TextBlock>Введите макс. значение</TextBlock>
+            <TextBox x:Name="xMax" Text="100"/>
+
+            <TextBlock x:Name="OutputResult"/>
+            <Button x:Name="InputButton"
+				Click="InputButton_Click"
+				Background="Green" Content="Вычислить" Height="32" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.826"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.252"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+        <Canvas Margin="10,150,10,10"
+                Name="CanvasDraw"
+                Background="#7E679A"
+                SizeChanged="Canvas_SizeChanged">
+        </Canvas>
+    </Grid>
+</Window>
