@@ -31,7 +31,7 @@ namespace FunctionBuilder.wpfGUI
         {
             string equation = Rpn.StartRpn(InputBox.Text);
             OutputResult.Text = equation;
-            Temp(equation);
+            DrawF(equation);
         }
 
         private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -79,7 +79,17 @@ namespace FunctionBuilder.wpfGUI
             CanvasDraw.Children.Add(yArrow);
         }
 
-        private void Temp(string equation)
+        private void WriteSheet(List<string> ListX, List<string> ListY)
+        {
+            string str = "";
+            for(int i = 0; i < ListX.Count; i++)
+            {
+                str += ListX[i] + "   " + ListY[i] + "\n";
+            }
+            SheetBlock.Text = str;
+        }
+
+        private void DrawF(string equation)
         {
             var width = CanvasDraw.ActualWidth;
             var height = CanvasDraw.ActualHeight;
@@ -102,6 +112,7 @@ namespace FunctionBuilder.wpfGUI
                 function.Points.Add(fPoint);
             }
             CanvasDraw.Children.Add(function);
+            WriteSheet(ListX, ListY);
         }
     }
 }

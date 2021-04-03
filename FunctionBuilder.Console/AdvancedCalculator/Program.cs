@@ -7,7 +7,7 @@ namespace function_table
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string str = Rpn.StartRpn(ReadFlile());
             WriteSheet(str);
@@ -16,11 +16,9 @@ namespace function_table
         static void WriteInFile(List<string> sheet)
         {
             string writePath = Path.GetFullPath("output.txt"); ;
-            using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
-            {
-                for(int i = 0; i < sheet.Count; i++)
-                    sw.WriteLine(sheet[i]);
-            }
+            using StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default);
+            for (int i = 0; i < sheet.Count; i++)
+                sw.WriteLine(sheet[i]);
         }
 
         private static string ReadFlile()
